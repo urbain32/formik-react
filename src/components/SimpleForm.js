@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from '@mui/material';
+import { Box, Button, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useFormik } from 'formik';
 const SimpleForm = () => {
@@ -8,11 +8,17 @@ const SimpleForm = () => {
       email: '',
       channel: '',
     },
+    onSubmit: (values) => {
+      console.log('Formik values', values);
+    },
   });
-  console.log('Formik values', formik.values);
   return (
-    <Box>
+    <Box sx={{ border: 1, borderRadius: 4, p: 2, m: 2 }}>
+      <Typography variant='h6' align='center'>
+        FORM
+      </Typography>
       <Box
+        onSubmit={formik.handleSubmit}
         component='form'
         sx={{
           '& > :not(style)': { m: 1, width: '400px', borderRadius: 10 },
