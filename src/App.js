@@ -1,10 +1,15 @@
-import SimpleForm from "./components/SimpleForm";
+import { Box } from '@mui/material';
+import Navbar from './components/Navbar';
+import SimpleForm from './components/SimpleForm';
 
 function App() {
   return (
-    <div className='App'>
-      <SimpleForm/>
-    </div>
+    <Box>
+      <Navbar />
+      <div className='App'>
+        <SimpleForm />
+      </div>
+    </Box>
   );
 }
 
