@@ -5,7 +5,7 @@ import SimpleForm from './components/SimpleForm';
 function App() {
   return (
     <Box>
-      <Navbar />
+          <Navbar />
       <div className='App'>
         <SimpleForm />
       </div>
