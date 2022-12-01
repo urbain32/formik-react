@@ -17,8 +17,24 @@ const initialValues = {
 const onSubmit = (values) => {
   console.log('Formik data', values);
 };
+const validate = (values) => {
+  let errors = {};
+  const regex = !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email);
+  if (!values.name) {
+    errors.name = 'Required';
+  }
+  if (!values.email) {
+    errors.email = 'Required';
+  } else if (regex) {
+    errors.email = 'Invalid email format';
+  }
+  if (!values.channel) {
+    errors.channel = 'Required';
+  }
+  return errors;
+};
 
-const SimpleForm = () => {
+const OldForm = () => {
   const formik = useFormik({
     initialValues,
     onSubmit,
@@ -95,4 +111,4 @@ const SimpleForm = () => {
   );
 };
 
-export default SimpleForm;
+export default OldForm;
