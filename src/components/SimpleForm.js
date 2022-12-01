@@ -22,8 +22,7 @@ const SimpleForm = () => {
   const formik = useFormik({
     initialValues,
     onSubmit,
-    validationSchema,
-    // validate,
+    validationSchema
   });
   console.log('visited field', formik.errors);
   return (
@@ -47,9 +46,7 @@ const SimpleForm = () => {
             name='name'
             label='Name'
             variant='outlined'
-            onChange={formik.handleChange}
-            value={formik.values.name}
-            onBlur={formik.handleBlur}
+            {...formik.getFieldProps('name')}
           />
           {formik.touched.name && formik.errors.name ? (
             <div className='error'>{formik.errors.name}</div>
@@ -62,9 +59,7 @@ const SimpleForm = () => {
             name='email'
             label='Email'
             variant='outlined'
-            onChange={formik.handleChange}
-            value={formik.values.email}
-            onBlur={formik.handleBlur}
+            {...formik.getFieldProps('email')}
           />
           {formik.touched.email && formik.errors.email ? (
             <div className='error'>{formik.errors.email}</div>
@@ -77,9 +72,7 @@ const SimpleForm = () => {
             name='channel'
             label='Channel'
             variant='outlined'
-            onChange={formik.handleChange}
-            value={formik.values.channel}
-            onBlur={formik.handleBlur}
+            {...formik.getFieldProps('channel')}
           />
           {formik.touched.channel && formik.errors.channel ? (
             <div className='error'>{formik.errors.channel}</div>
