@@ -58,7 +58,7 @@ const SimpleForm = () => {
             value={formik.values.name}
             onBlur={formik.handleBlur}
           />
-          {formik.errors.name ? (
+          {formik.touched.name && formik.errors.name ? (
             <div className='error'>{formik.errors.name}</div>
           ) : null}
         </div>
@@ -73,7 +73,7 @@ const SimpleForm = () => {
             value={formik.values.email}
             onBlur={formik.handleBlur}
           />
-          {formik.errors.email ? (
+          {formik.touched.email && formik.errors.email ? (
             <div className='error'>{formik.errors.email}</div>
           ) : null}
         </div>
@@ -88,7 +88,7 @@ const SimpleForm = () => {
             value={formik.values.channel}
             onBlur={formik.handleBlur}
           />
-          {formik.errors.channel ? (
+          {formik.touched.channel && formik.errors.channel ? (
             <div className='error'>{formik.errors.channel}</div>
           ) : null}
         </div>
