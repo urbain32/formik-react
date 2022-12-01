@@ -1,6 +1,14 @@
 import { Box, Button, TextField, Typography } from '@mui/material';
 import React from 'react';
 import { useFormik } from 'formik';
+import * as yup from 'yup';
+
+const validationSchema = yup.object({
+  name: yup.string().required('Required field'),
+  email: yup.string().email('Invalid email format').required('Required field'),
+  channel: yup.string().required('Required field'),
+});
+
 const initialValues = {
   name: 'Urban',
   email: '',
@@ -30,7 +38,8 @@ const SimpleForm = () => {
   const formik = useFormik({
     initialValues,
     onSubmit,
-    validate,
+    validationSchema,
+    // validate,
   });
   console.log('visited field', formik.errors);
   return (
