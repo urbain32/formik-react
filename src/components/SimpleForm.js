@@ -32,7 +32,7 @@ const SimpleForm = () => {
     onSubmit,
     validate,
   });
-  console.log('Formik errors', formik.errors);
+  console.log('visited field', formik.errors);
   return (
     <Box sx={{ border: 1, borderRadius: 4, p: 2, m: 2 }}>
       <Typography variant='h6' align='center'>
@@ -56,6 +56,7 @@ const SimpleForm = () => {
             variant='outlined'
             onChange={formik.handleChange}
             value={formik.values.name}
+            onBlur={formik.handleBlur}
           />
           {formik.errors.name ? (
             <div className='error'>{formik.errors.name}</div>
@@ -70,6 +71,7 @@ const SimpleForm = () => {
             variant='outlined'
             onChange={formik.handleChange}
             value={formik.values.email}
+            onBlur={formik.handleBlur}
           />
           {formik.errors.email ? (
             <div className='error'>{formik.errors.email}</div>
@@ -84,6 +86,7 @@ const SimpleForm = () => {
             variant='outlined'
             onChange={formik.handleChange}
             value={formik.values.channel}
+            onBlur={formik.handleBlur}
           />
           {formik.errors.channel ? (
             <div className='error'>{formik.errors.channel}</div>
